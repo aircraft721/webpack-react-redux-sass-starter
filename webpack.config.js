@@ -18,5 +18,8 @@ module.exports = {
                 use: ['css-loader','sass-loader',]
             }) },
         ]
-    }
+    },
+    plugins: [new HtmlWebpackPlugin({
+        template: 'app/index.html'
+    }), extractPlugin]
 }
