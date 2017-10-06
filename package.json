@@ -4,7 +4,14 @@
   "description": "Webpack-react-redux-sass setup ",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "webpack-dev-server --open"
+  },
+  "babel": {
+    "presets": [
+      "env",
+      "react"
+    ]
   },
   "author": "Dan Constantinescu",
   "license": "ISC",

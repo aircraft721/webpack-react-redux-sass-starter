@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom';
 import './app.sass';
 
 
-export default class App extends Component {
+class App extends Component {
     render(){
         return(
             <div>
@@ -13,4 +13,4 @@ export default class App extends Component {
     }
 }
 
-ReactDOM.render(<App/>, document.getElementById('app'));
+ReactDOM.render(<App />, document.getElementById('app'));
