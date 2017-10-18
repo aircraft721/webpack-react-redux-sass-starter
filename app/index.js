@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 import ReactDOM from 'react-dom';
+import {AppContainer} from 'react-hot-loader';
 import './app.sass';
 
 
@@ -7,7 +8,9 @@ class App extends Component {
     render(){
         return(
             <div>
-                <strong>ttt</strong>
+                <strong>fsd</strong>
+                <p>dsadas</p>
+                <em>das</em>
             </div>
         );
     }

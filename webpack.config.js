@@ -3,11 +3,16 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const webpack = require('webpack');
 
-const extractPlugin = new ExtractTextPlugin({
-    filename: 'main.css',
-    disable: true,
-    allChunks: true
+const isProd = process.env.NODE_ENV === 'production';
+
+const cssDev = ['style-loader','css-loader','sass-loader'];
+const cssProd = ExtractTextPlugin.extract({
+    fallback: 'style-loader',
+    use: ['css-loader','sass-loader'],
+    publicPath: '/dist'
 });
+const cssConfig = isProd ? cssProd : cssDev;
+
 
 module.exports = {
     entry: './app/index.js',
@@ -17,20 +22,24 @@ module.exports = {
     },
     devServer: {
         inline: true,
-        hotOnly: true
+        hot: true
     },
     module: {
         rules: [
-            { test: /\.js$/, use: 'babel-loader' },
+            { test: /\.js$/, use: ['babel-loader'] },
             { test: /\.sass$/,
-                use: ['style-loader','css-loader','sass-loader',]
+                use: cssConfig
             },
         ]
     },
     plugins: [new HtmlWebpackPlugin({
         template: 'app/public/index.html'
         }), 
-        extractPlugin,
+        new ExtractTextPlugin({
+            filename: 'main.css',
+            disable: !isProd,
+            allChunks: true
+        }),
         new webpack.NamedModulesPlugin(),
         new webpack.HotModuleReplacementPlugin()
     ]
