@@ -1,6 +1,7 @@
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
+const UglifyJSPlugin = require('uglifyjs-webpack-plugin');
 const webpack = require('webpack');
 
 const isProd = process.env.NODE_ENV === 'production';
@@ -35,6 +36,7 @@ module.exports = {
     plugins: [new HtmlWebpackPlugin({
         template: 'app/public/index.html'
         }), 
+        new UglifyJSPlugin({test: /\.js$/}),
         new ExtractTextPlugin({
             filename: 'main.css',
             disable: !isProd,
