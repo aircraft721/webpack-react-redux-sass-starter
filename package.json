@@ -10,12 +10,14 @@
   "babel": {
     "presets": [
       "latest",
-      "react"
+      "react",
+      "stage-2"
     ]
   },
   "author": "Dan Constantinescu",
   "license": "ISC",
   "dependencies": {
+    "babel-preset-stage-2": "^6.24.1",
     "react": "^16.0.0",
     "react-dom": "^16.0.0",
     "react-redux": "^5.0.6",
