@@ -5,7 +5,7 @@ export const add = () => {
     }
 }
 
-export const remove = () => {
+export const remove = (count) => {
     return {
         type: 'DECREMENT'
     }

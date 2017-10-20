@@ -1,16 +1,13 @@
 
-function app1(state = {count: 0}, action){
-    switch(action.type){
-        case 'INCREMENT':
-            return{
-                ...state, count: state.count + 1
-            }
-        case 'DECREMENT':
-            return{
-                ...state, count: state.count - 1
-            }
-        return state;
+const app2 = (state = 0, action) => {
+    switch(action.type) {
+        case 'INCREMENT': 
+            return state + 1;
+        case 'DECREMENT': 
+            return state - 1;
+        default: 
+            return state;
     }
 }
 
-export default app1;
+export default app2;
