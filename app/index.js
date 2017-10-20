@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import ReactDOM from 'react-dom';
 import './app.sass';
+import Test from './components/Test.jsx';
 
 
 class App extends Component {
@@ -10,6 +11,7 @@ class App extends Component {
                 <strong>fsd</strong>
                 <p>dsafggg</p>
                 <em>dqw</em>
+                <Test />
             </div>
         );
     }

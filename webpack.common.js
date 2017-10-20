@@ -10,13 +10,9 @@ module.exports = {
         path: path.resolve(__dirname, 'dist'),
         filename: 'index_bundle.js'
     },
-    devServer: {
-        inline: true,
-        hot: true
-    },
     module: {
         rules: [
-            { test: /\.js$/, use: ['babel-loader'] },
+            { test: /\.(js|jsx)$/, use: ['babel-loader'] },
         ]
     },
     plugins: [new HtmlWebpackPlugin({

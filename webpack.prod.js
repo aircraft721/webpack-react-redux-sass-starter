@@ -7,7 +7,6 @@ const UglifyJSPlugin = require('uglifyjs-webpack-plugin');
 module.exports = merge(common, {
     module: {
         rules: [
-            { test: /\.js$/, use: ['babel-loader'] },
             { test: /\.sass$/,
                 use: ExtractTextPlugin.extract({
                         fallback: 'style-loader',
