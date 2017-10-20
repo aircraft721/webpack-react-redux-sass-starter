@@ -11,7 +11,8 @@ module.exports = merge(common, {
         ]
     },
     devServer: {
-        hot: true
+        hot: true,
+        historyApiFallback: true
     },
     plugins: [
         new webpack.NamedModulesPlugin(),

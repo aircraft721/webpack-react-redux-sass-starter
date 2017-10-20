@@ -4,8 +4,8 @@ export default class Test extends Component {
     render(){
         return (
             <div className='test'>
-                TESTTTTT
+                <h3>Test</h3>
             </div>
         );
     }
-}
+} 
