@@ -1,6 +1,5 @@
 body 
     background: #444444
-    color: red
     font-size: 40px
 
 div
@@ -12,9 +11,11 @@ div
 
 a
     margin-right: 20px
+    text-decoration: none
 
 .is-active 
     color: yellow
     
-    &:active
-        color: yellow !important
+
+a:-webkit-any-link:active
+    color: yellow 
