@@ -1,23 +1,22 @@
 import React, {Component} from 'react';
 import {dispatch} from 'redux'
 import {connect} from 'react-redux';
-import {add, remove} from '../actions/index';
+import * as actions from '../actions';
 import {app2} from '../reducers/index';
 
-class App extends Component {
-    render(){
-        return(
-            <div>
-                <h3>APP Component</h3>
-                <button onClick={()=>dispatch(add())}>Increment</button>
-                <button onClick={()=>dispatch(remove())}>Decrement</button>
-            </div>
-        );
-    }
+
+const App = ({add, remove}) => {
+    return (
+        <div>
+            <button onClick={add}>Increment</button>
+            <button onClick={remove}>Decrement</button>
+            <h3>fsda{this.props.app2}</h3>
+        </div>
+    )
 }
 
 const mapStateToProps = (state) => {
-    console.log(state);
+    app2: state.app2
 }
 
-export default connect(mapStateToProps)(App);
+export default connect(mapStateToProps, actions)(App);

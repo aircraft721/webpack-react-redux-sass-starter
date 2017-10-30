@@ -1,3 +1,6 @@
+import {combineReducers} from 'redux';
+import {pingReducer} from '../epics/index';
+
 
 const app2 = (state = 0, action) => {
     switch(action.type) {
@@ -10,4 +13,9 @@ const app2 = (state = 0, action) => {
     }
 }
 
-export default app2;
+export const rootReducer = combineReducers({
+    app2,
+    pingReducer
+})
+
+// export default app2;

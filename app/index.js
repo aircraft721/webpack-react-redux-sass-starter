@@ -1,7 +1,9 @@
 import React, {Component} from 'react';
 import ReactDOM from 'react-dom';
+import {createEpicMiddleware} from 'redux-observable';
 import './app.sass';
 
+//import App from './components/App';
 import Test from './components/Test.jsx';
 import Contact from './components/Contact';
 
@@ -10,14 +12,19 @@ import Header from './components/Header';
 
 import {BrowserRouter, Route, Switch} from 'react-router-dom';
 
-import {createStore} from 'redux';
+import {createStore,applyMiddleware} from 'redux';
 import {Provider} from 'react-redux';
 import {connect} from 'react-redux';
 import {add, remove} from './actions/index';
-import reducer from './reducers';
+import {rootReducer} from './reducers';
+import {rootEpic} from './epics';
+import {ping} from './actions';
 
 
-let store = createStore(reducer);
+const epicMiddleware = createEpicMiddleware(rootEpic);
+
+
+let store = createStore(rootReducer, applyMiddleware(epicMiddleware));
 
 store.subscribe(() => {
     console.log(store.getState());
@@ -25,17 +32,18 @@ store.subscribe(() => {
 
 class App extends Component {
     render(){
-        console.log(this.props.value);
+        const {isPinging} = store.getState().pingReducer;
         return(
-            
             <div>
                 <h3>APP Component</h3>
                 <button onClick={()=>store.dispatch(add())}>Increment</button>
                 <button onClick={()=>store.dispatch(remove())}>Decrement</button>
+                <button onClick={()=>store.dispatch(ping())}>Ping</button>
             </div>
         );
     }
 }
+
 
 const routes = (
     <Provider store={store}>

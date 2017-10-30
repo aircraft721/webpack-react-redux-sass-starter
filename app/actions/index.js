@@ -10,3 +10,7 @@ export const remove = (count) => {
         type: 'DECREMENT'
     }
 }
+
+export const ping = () => ({
+    type: 'PING'
+})
